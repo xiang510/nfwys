@@ -16,8 +16,7 @@ var restream = function(proxyReq, req, res, options) {
     proxyReq.write(bodyData);
   }
 };
-var proxyPath = 'https://nfwys.cf:8118'; //目标后端服务地址
-// var proxyPath = ' https://cnodejs.org'; //目标后端服务地址
+var proxyPath = 'http://10.100.153.124:3000/'; //目标后端服务地址
 var proxyOption = {
   target: proxyPath,
   changeOrigin: true,

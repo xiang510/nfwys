@@ -2,8 +2,7 @@
 
 import axios from 'axios';
 
-let fetch = axios.create({
-  // baseUrl: process.env.BASE_API,
+const fetch = axios.create({
   timeout: '60000',
   headers: {
     // 'Content-Type': 'application/json;charset=UTF-8',
@@ -21,7 +20,7 @@ fetch.interceptors.request.use(
 
 fetch.interceptors.response.use(
   response => {
-    console.log(response);
+    // console.log(response);
   
     return response;
   },
@@ -45,4 +44,30 @@ fetch.putAjax = function(url, params) {
   return fetch.put(url, params);
 };
 
-export default fetch;
+const request = async function(obj) {
+  /* 
+      path,
+      method,
+      callback,
+      errCallback,
+      header,
+      body,
+      showError = true,
+      showLoading = true,
+      successTip,
+  */
+  let { path, method, callback, errCallback } = obj;
+
+  if(method === 'GET') {
+    let res = await fetch.getAjax(path);
+    if(!res.data.code) {
+      callback(res.data.data);
+    }else  {
+      callback(res.data.data);
+      
+    }
+  }
+
+}
+
+export  { fetch,  request};

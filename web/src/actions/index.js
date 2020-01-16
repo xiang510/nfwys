@@ -1,15 +1,24 @@
 import { createAction } from 'redux-actions';
-
+import * as apis from '../constants/api';
+import { request  } from '../utils'
 export const TEST = createAction('TEST');
 
-export const handleSleepTest= params => async (dispatch, getState) => {
-    let res = await new Promise( (resolve, reject) => {
-        setTimeout( () =>  resolve({data: 'test is ok!'}), 2000)
-    });
-    dispatch({
+
+export const handleSleepTest= params => (dispatch, getState) => {
+    function update(data) {
+      dispatch({
         type: 'TEST',
         payload: {
-          test: res.data,
+          test: data.testStr,
         },
-    })
+       })
+    }
+
+    request({
+      path: apis.getTestStr,
+      method: 'GET',
+      callback: update,
+      errCallback: null
+    });
+    
   };
