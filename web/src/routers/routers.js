@@ -6,7 +6,12 @@ const routers = [
     {
         path: '/',
         component: Home,
-        routers: [
+        routes: [
+            {
+                path: '/index',
+                component: Test,
+                exact: true,
+           },
            {
                 path: '/test',
                 component: Test,

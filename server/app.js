@@ -4,6 +4,7 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var fs = require('fs')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -29,7 +30,15 @@ app.use('/api/test', testRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
+  // console.log(req.originalUrl)
+  // next(createError(404));
+  var p = path.join(__dirname, 'public', 'dist', 'index.html');
+  fs.readFile(p, { encoding: 'utf8'}, (err, f) => {
+    console.log(f)
+    res.send(f)
+  });
+
+
 });
 
 // error handler

@@ -1,7 +1,8 @@
 const express = require('express');
-
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
+var fs = require('fs');
+var path = require('path');
 // var bodyParser = require('body-parser');
 // var logger = require('morgan');
 var proxyMiddleWare = require('http-proxy-middleware');
@@ -37,6 +38,27 @@ app.use(webpackDevMiddleware(compiler, {
 }));
 
 app.use('/api', proxyMiddleWare(proxyOption)); // 应用代理
+
+app.use(function(req, res, next) {
+    var s = `<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Never forget why you start!</title>
+    </head>
+    <body>
+        
+        <div id="root"></div>
+        <script src="./main.js"></script>
+    </body>
+    </html>`;
+
+    res.send(s)
+})
+
+
 
 // 将文件 serve 到 port 3000。
 app.listen(3200, function () {
