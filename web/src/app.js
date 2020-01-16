@@ -1,8 +1,12 @@
 import React, { Component} from 'react';
-import store from './stores'
-import Test from './containers/testContainer/index.js';
-
 import { Provider } from 'react-redux';
+import store from './stores';
+import Router from './routers';
+
+import ToastMessage from './components/ToastMessage.jsx';
+import Login from './containers/loginContainer';
+
+import './assets/css/reset.css';
 
 
 class App extends Component {
@@ -10,16 +14,21 @@ class App extends Component {
         super(props)
 
         this.state = {
-
+            isLogin: true
         }
     }
     componentDidMount() {
 
     }
     render() {
-        return <Provider store={store}>
-            <Test />
-        </Provider>
+        let { isLogin } = this.state;
+        return (
+            <Provider store={store}>
+                {!isLogin && <Login />}
+                {isLogin && <Router />}
+                <ToastMessage />
+            </Provider>
+        )
     }
 }
 

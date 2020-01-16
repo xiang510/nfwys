@@ -46,15 +46,15 @@ fetch.putAjax = function(url, params) {
 
 const request = async function(obj) {
   /* 
-      path,
-      method,
-      callback,
-      errCallback,
-      header,
-      body,
-      showError = true,
-      showLoading = true,
-      successTip,
+      @param path required
+      @param method
+      @param callback
+      @param errCallback
+      @param header
+      @param body
+      @param showError = true
+      @param showLoading = true
+      s@param uccessTip
   */
   let { path, method, callback, errCallback } = obj;
 

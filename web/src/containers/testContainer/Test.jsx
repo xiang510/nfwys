@@ -11,8 +11,12 @@ class Test extends Component {
     }
     componentDidMount() {
         console.log(this.props);
-        let { handleSleepTest } = this.props;
+        let { handleSleepTest, handleToast  } = this.props;
         handleSleepTest();
+        handleToast({
+            showToast: true,
+            toastMessage: 'this is a toast message.'
+        });
     }
     render() {
         let { test } = this.props;

@@ -2,6 +2,6 @@ const getTestStr = '/api/test';
 
 
 
-export {
+export default {
     getTestStr
 }
