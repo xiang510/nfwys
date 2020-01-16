@@ -16,7 +16,7 @@ var restream = function(proxyReq, req, res, options) {
     proxyReq.write(bodyData);
   }
 };
-var proxyPath = 'http://x.x.x.x:3000/'; //目标后端服务地址
+var proxyPath = 'http://127.0.0.1:3000/'; //目标后端服务地址
 var proxyOption = {
   target: proxyPath,
   changeOrigin: true,
