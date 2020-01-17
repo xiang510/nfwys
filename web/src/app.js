@@ -4,7 +4,6 @@ import store from './stores';
 import Router from './routers';
 
 import ToastMessage from './components/ToastMessage.jsx';
-import Login from './containers/loginContainer';
 
 import './assets/css/reset.css';
 
@@ -14,18 +13,16 @@ class App extends Component {
         super(props)
 
         this.state = {
-            isLogin: true
+
         }
     }
     componentDidMount() {
 
     }
     render() {
-        let { isLogin } = this.state;
         return (
             <Provider store={store}>
-                {!isLogin && <Login />}
-                {isLogin && <Router />}
+                <Router />
                 <ToastMessage />
             </Provider>
         )
