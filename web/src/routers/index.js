@@ -4,7 +4,7 @@ import routers from './routers';
 
 
 export function RouteWithSubRoutes(route) {
-    if(route.isLogin) {
+    if(route.requireLogin) {
       if(route.loginStatus) {
         return (
           <Route
@@ -31,12 +31,12 @@ export function RouteWithSubRoutes(route) {
 }
 
 
-export default function rootRouter() {
+export default function rootRouter(props) {
     return (
         <Router>
             <Switch>
                 {
-                    routers.map( (route, key) => <RouteWithSubRoutes key={key} { ...route}  />)
+                    routers.map( (route, key) => <RouteWithSubRoutes key={key} { ...route }  {...props} />)
                 }
                 <Redirect from="" to="/index" />
             </Switch>

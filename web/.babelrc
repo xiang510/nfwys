@@ -1,4 +1,10 @@
-{
+ {
     "presets": ["@babel/preset-react"],
-    "plugins": []
-  }
+    "plugins": ["@babel/plugin-proposal-class-properties"],
+    "env": {
+      "production": {
+        "presets": ["minify"],
+        "plugins": ["babel-plugin-transform-remove-console"]
+      }
+    }
+}

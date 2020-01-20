@@ -7,15 +7,21 @@ class Home extends Component {
 
         this.state = {
             containerHeight: document.documentElement.clientHeight + 'px',
-            isLogin: false
         }
         this._loginInfo = null;
+        
     }
 
    
     componentDidMount() { 
-        let { history, location, routes } = this.props;
+        let { history, location, routes ,loginStatus, changeLoginStatus} = this.props;
         this._loginInfo = dataUtils.getData('loginInfo');
+
+        if(this._loginInfo && !loginStatus) {
+            changeLoginStatus({
+                loginStatus: true
+            })
+        }
 
         if(!this._loginInfo) {
             if(location.pathname === '/' || location.pathname === '/index') {
@@ -23,7 +29,7 @@ class Home extends Component {
             }else {
                 if(!routes.filter( (item) => item.path === location.pathname).length){
                     history.push('/notfound')
-                }else if(routes.filter( (item) => item.path === location.pathname && item.isLogin).length) {
+                }else if(routes.filter( (item) => item.path === location.pathname && item.requireLogin).length) {
                     history.push('/login')
                 }
             }
@@ -39,14 +45,14 @@ class Home extends Component {
      }
 
     render() {
-        let { routes } = this.props;
+        let { routes ,loginStatus } = this.props;
 
         return (
             <div style={{ height: this.state.containerHeight}}>
                 <div style={styles.container} className="clearfix">
                     <div style={styles.leftWrap} className="fl">
                         {
-                            routes.map( (route, i) => <RouteWithSubRoutes key={i} {...route} loginStatus={ this._loginInfo} />)
+                            routes.map( (route, i) => <RouteWithSubRoutes key={i} {...route} loginStatus={loginStatus}  />)
                         }
                     </div>
                     <div style={ styles.rightWrap} className="fl">

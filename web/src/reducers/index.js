@@ -4,6 +4,7 @@ const defaultState = {
     test: '',
     showToast: false,
     toastMessage: '',
+    loginStatus: false,
 }
 
 export default handleActions({
@@ -20,4 +21,10 @@ export default handleActions({
           toastMessage: payload.toastMessage,
         };
     },
+    LOGINSTATUS: (state, { payload }) => {
+        return {
+            ...state,
+            loginStatus: payload.loginStatus,
+        };
+    }
 }, defaultState )

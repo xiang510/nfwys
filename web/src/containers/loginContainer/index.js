@@ -2,6 +2,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Login from './Login.jsx';
+import { LOGINSTATUS } from '../../actions'
 
 const mapStateToProps = state => {
   return {};
@@ -10,7 +11,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(
-    {},
+    {
+      changeLoginStatus: LOGINSTATUS
+    },
     dispatch
   );
 };

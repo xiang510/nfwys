@@ -4,6 +4,7 @@ import { request  } from '../utils'
 
 export const TEST = createAction('TEST');
 export const TOAST = createAction('TOAST');
+export const LOGINSTATUS = createAction('LOGINSTATUS');
 
 
 export const handleSleepTest= params => (dispatch, getState) => {

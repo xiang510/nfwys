@@ -19,7 +19,7 @@ const routers = [
             {
                 path: '/index',
                 component: Test,
-                isLogin: true
+                requireLogin: true
            },
            {
                 path: '/test',
