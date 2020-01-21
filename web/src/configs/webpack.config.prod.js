@@ -7,6 +7,15 @@ module.exports =  merge(common, {
     output: {
         filename: 'bundle.[hash].js',
     },
-    plugins: []
+    plugins: [],
+    // optimization: {
+    //     splitChunks: {
+    //         cacheGroups: {
+    //           vendors: {
+    //             filename: '[name].bundle.js'
+    //           }
+    //         }
+    //     }
+    // }
     
 }) 
