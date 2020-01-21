@@ -1,6 +1,8 @@
 import React, { Component} from 'react';
 import { RouteWithSubRoutes  } from '../../routers';
-import { dataUtils } from '../../utils'
+import { dataUtils } from '../../utils';
+import '../../assets/css/main.css';
+
 class Home extends Component {
     constructor(props) {
         super(props);
@@ -56,10 +58,28 @@ class Home extends Component {
                         }
                     </div>
                     <div style={ styles.rightWrap} className="fl">
-                        <p>Shawn, 欢迎来到首页。</p>
-                        <ul>
-                            <li></li>
+                        <div className="ui-home-title">不忘初心</div>
+                        <ul className="ui-home-navwrap"> 
+                            <li className="ui-home-item">
+                                Item 1
+                            </li>
+                            <li className="ui-home-item">
+                                Item 2
+                            </li>
+                            <li className="ui-home-item">
+                                Item 3
+                            </li>
                         </ul>
+                        <div className="ui-home-linkwrap">
+                            <p>站内链接</p>
+                            <div>
+                                <a href="http://shawn.nfwys.com" target="_blank">我的博客</a>
+                                <a href="https://github.com/xiang510" target="_blank">我的Github</a>
+                            </div>
+                        </div>
+                        <div className="ui-home-bottom" >
+                            <a href="http://beian.miit.gov.cn/" target="_blank">粤ICP备18145979号</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -70,18 +90,18 @@ class Home extends Component {
 const styles = {
     container: {
         height: '100%',
-        paddingRight: '240px',
+        paddingRight: '320px',
      },
     leftWrap: {
-        backgroundColor: 'pink',
         height: '100%',
         width: '100%',
     },
     rightWrap: {
-        backgroundColor: 'purple',
         height: '100%',
-        width: '240px',
-        marginRight: '-240px'
+        width: '320px',
+        marginRight: '-320px',
+        position: 'relative',
+        backgroundColor: 'rgba(41, 16, 0, 1)'
     }
 }
 export default Home;

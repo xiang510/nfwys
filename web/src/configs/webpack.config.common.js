@@ -30,6 +30,17 @@ module.exports = {
                 loader: 'json-loader'
             },
             {
+                test: /\.(ttf|eot|woff)$/,
+                use: [
+                  {
+                    loader: 'file-loader',
+                    options: {
+                        // publicPath: 'assets',
+                    },
+                  },
+                ],
+            },
+            {
                 test: /\.css|less$/,
                 use: [
                         { loader: 'style-loader' }, 
@@ -47,7 +58,9 @@ module.exports = {
                     },
                   },
                 ],
-              }
+            },
+            
         ]
-    }
+    },
+    
 }

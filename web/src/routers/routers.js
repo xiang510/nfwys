@@ -1,7 +1,8 @@
 import Login from '../containers/loginContainer';
 import Home from '../containers/homeContainer';
+import Index from '../containers/indexContainer';
 import Test from '../containers/testContainer';
-import NoMatch from '../containers/noMatchContainer'
+import NoMatch from '../containers/noMatchContainer';
 
 const routers = [
     {
@@ -18,7 +19,7 @@ const routers = [
         routes: [
             {
                 path: '/index',
-                component: Test,
+                component: Index,
                 requireLogin: true
            },
            {
