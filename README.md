@@ -1,2 +1,2 @@
 # NFWYS
-Never forget why your start
+Never forget why your start!
